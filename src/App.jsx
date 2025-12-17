@@ -15,7 +15,7 @@ const DATA = [
 ];
 const CATEGORIES = ['전체', ...new Set(DATA.map((item) => item.category))];
 
-export default function Home() {
+export default function app() {
     const [filterCategory, setFilterCategory] = useState('전체');
 
     const filteredData = filterCategory === '전체' ? DATA : DATA.filter((item) => item.category === filterCategory);
@@ -24,7 +24,7 @@ export default function Home() {
         <main className="container">
             <h1>카드 렌더링</h1>
             <Filter categories={CATEGORIES} currentFilter={filterCategory} onFilterChange={setFilterCategory} />
-            <CardList data={filteredData} />
+            <CardList listData={filteredData} />
         </main>
     );
 }
